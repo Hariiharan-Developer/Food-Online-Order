@@ -1,5 +1,7 @@
 const express = require('express')
 const cors =require('cors')
+const dotenv = require('dotenv').config()
+const connectDb = require('./config/db')
 
 
 //app config:
@@ -10,6 +12,7 @@ const port=4000
 app.use(express.json())
 app.use(cors())
 
+connectDb()
 app.get('/',(req,res)=>{
     res.send('API Working')
 })
