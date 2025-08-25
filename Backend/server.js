@@ -2,6 +2,7 @@ const express = require('express')
 const cors =require('cors')
 const dotenv = require('dotenv').config()
 const connectDb = require('./config/db')
+const foodRoutes = require('./routes/food.route')
 
 
 //app config:
@@ -13,9 +14,14 @@ app.use(express.json())
 app.use(cors())
 
 connectDb()
+ 
 app.get('/',(req,res)=>{
     res.send('API Working')
 })
+
+//api end point:
+app.use('/api/food',foodRoutes)
+app.use('/images',express.static('uploads'))
 
 app.listen(port,()=>{
     console.log(`Server listening on the port: http://localhost:${port}`)
