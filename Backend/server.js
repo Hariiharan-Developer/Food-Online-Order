@@ -3,6 +3,7 @@ const cors =require('cors')
 const dotenv = require('dotenv').config()
 const connectDb = require('./config/db')
 const foodRoutes = require('./routes/food.route')
+const userRouter = require('./routes/user.route')
 
 
 //app config:
@@ -22,6 +23,7 @@ app.get('/',(req,res)=>{
 //api end point:
 app.use('/api/food',foodRoutes)
 app.use('/images',express.static('uploads'))
+app.use('/api/user',userRouter)
 
 app.listen(port,()=>{
     console.log(`Server listening on the port: http://localhost:${port}`)
