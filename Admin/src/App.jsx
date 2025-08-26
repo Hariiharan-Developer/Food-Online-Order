@@ -5,8 +5,8 @@ import{Routes,Route} from 'react-router-dom'
 import Add from './components/pages/Add/Add'
 import List from './components/pages/List/List'
 import Order from './components/pages/Order/Order'
- import { ToastContainer } from 'react-toastify';
- import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App=()=>{
