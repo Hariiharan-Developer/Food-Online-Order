@@ -5,6 +5,7 @@ const connectDb = require('./config/db')
 const foodRoutes = require('./routes/food.route')
 const userRouter = require('./routes/user.route')
 const cartRouter = require('./routes/cart.route')
+const orderRouter = require('./routes/order.route')
 
 
 //app config:
@@ -27,6 +28,7 @@ app.use('/api/food',foodRoutes)
 app.use('/images',express.static('uploads'))
 app.use('/api/user',userRouter)
 app.use('/api/cart',cartRouter)
+app.use('/api/order',orderRouter)
 
 app.listen(port,()=>{
     console.log(`Server listening on the port: http://localhost:${port}`)

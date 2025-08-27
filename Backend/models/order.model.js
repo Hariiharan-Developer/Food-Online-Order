@@ -1,0 +1,31 @@
+const mongoose = require('mongoose')
+
+const orderSchema = new mongoose.Schema({
+    userId:{
+        type:String,
+        required:true,
+    },
+    items:{
+        type:Array,
+        required:true
+    },
+    amount:{
+        type:Number,
+        required:true
+        
+    },
+    address:{
+        type:String,
+        default:'Food Procesing'
+    },
+    date:{
+        type:Date,
+        default:Date.now()
+    },
+    payment:{
+        type:Boolean,
+        default:false
+    }
+})
+const orderModel = mongoose.models.order || mongoose.model('Order',orderSchema)
+module.exports = orderModel
