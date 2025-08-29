@@ -91,4 +91,43 @@ catch(err){
  res.status({success:false,message:'eror'})
 }
 }
-module.exports ={placeOrder , verifyOrder, userOrders}
+
+//list orders for admin panel:
+const listOrders = async(req,res)=>{
+    try{
+           const orders = await orderModel.find({})
+           res.status(202).json({
+            success:true,
+            data:orders
+           })
+    }
+    catch(err){
+             console.log(err.message)
+             res.status(404).json({
+                success:false,
+                message:'error'
+             })
+    }
+
+}
+
+// api for updating order status:
+const updatestatus = async (req,res)=>{
+    try{
+        await orderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status})
+        res.status(202).json({
+            success:true,
+            message:'status updated'
+        })
+      }
+
+catch(err){
+console.log(err.message)
+res.status(400).json({
+    success:false,
+    message:'Error'
+})
+    }
+}
+
+module.exports ={placeOrder , verifyOrder, userOrders ,listOrders,updatestatus}

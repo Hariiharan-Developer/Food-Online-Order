@@ -34,8 +34,9 @@ const orderSchema = new mongoose.Schema({
         default:false
     },
     status:{
-        type:String,
-        default:'Order processsing'
+        type: String,
+        enum: ['Food Processing', 'Out for delivery', 'Delivered'], //  restrict to valid options
+        default: 'Food Processing'
     }
 })
 const orderModel = mongoose.models.order || mongoose.model('Order',orderSchema)
