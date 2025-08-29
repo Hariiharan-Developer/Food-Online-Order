@@ -59,6 +59,16 @@ import profile_icon from './profile_icon.png'
 import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
+import swiggy_logo from './swiggy-logo-hd.png'
+
+import baner4 from './baner4.jpg'
+import baner7 from './baner7.jpg'
+import baner8 from './baner8.jpg'
+import baner9 from './baner9.jpg'
+import baner10 from './baner10.jpg'
+import baner11 from './baner11.jpg'
+import baner12 from './baner12.jpg'
+
 
 export const assets = {
     logo,
@@ -79,7 +89,17 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    swiggy_logo,
+    
+    baner4,
+    baner7,
+    baner8,
+    baner9,
+    baner10,
+    baner11,
+    baner12
+    
 }
 
 export const menu_list = [

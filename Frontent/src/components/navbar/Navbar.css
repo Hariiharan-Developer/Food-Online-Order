@@ -1,5 +1,5 @@
 .navbar{
-    padding:20px 0px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,11 +10,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 5px ;
     box-shadow: 0 5px 8px rgba(0,0,0,0.0);
 }
 .navbar .logo{
-    width: 150px;
+    width: 200px;
 }
 
 .navbar-menu{

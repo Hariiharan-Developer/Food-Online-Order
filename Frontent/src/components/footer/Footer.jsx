@@ -6,7 +6,7 @@ const Footer = () => {
     <div className='footer' id='footer'>
         <div className="footer-content">
             <div className="footer-content-left">
-            <img src={assets.logo}/>
+            <img src={assets.swiggy_logo} className='footer-logo'/>
             <p>FoodieExpress is your one-stop destination for fresh, tasty, and hygienic food delivered right to your doorstep. From mouth-watering snacks to full meals, we make ordering simple, fast, and reliable. With a focus on quality ingredients and quick service, we ensure every bite is filled with flavor and happiness. Stay connected with us for exciting offers, exclusive deals, and a delightful food journey every day!</p>
             <div className="footer-social-icons">
             <img src={assets.facebook_icon}/>
