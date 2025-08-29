@@ -15,8 +15,15 @@ const orderSchema = new mongoose.Schema({
         
     },
     address:{
-        type:String,
-        default:'Food Procesing'
+       firstName: { type: String, required: true },
+        lastName: { type: String, required: true },
+        email: { type: String, required: true },
+        street: { type: String, required: true },
+        city: { type: String, required: true },
+        state: { type: String, required: true },
+        zipcode: { type: String, required: true },
+        country: { type: String, required: true },
+        phone: { type: String, required: true }
     },
     date:{
         type:Date,
@@ -25,6 +32,10 @@ const orderSchema = new mongoose.Schema({
     payment:{
         type:Boolean,
         default:false
+    },
+    status:{
+        type:String,
+        default:'Order processsing'
     }
 })
 const orderModel = mongoose.models.order || mongoose.model('Order',orderSchema)

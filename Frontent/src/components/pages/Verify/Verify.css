@@ -1,0 +1,43 @@
+.verify {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* dull black overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* space between spinner & text */
+    font-family: Arial, sans-serif;
+    color: #fff; /* white text on dark bg */
+    z-index: 9999; /* stays on top */
+}
+
+.verify .spinner {
+    width: 80px;
+    height: 80px;
+    border: 6px solid rgba(255, 255, 255, 0.3); /* lighter dull circle */
+    border-top-color: tomato; /* highlight color */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.verify p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    animation: fadeBlink 1.5s infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}

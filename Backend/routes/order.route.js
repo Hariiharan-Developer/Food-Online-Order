@@ -1,9 +1,11 @@
 const express = require('express')
 const authMiddleware = require('../middlewares/auth')
-const {placeOrder}=require('../controllers/order.controller')
+const {placeOrder , verifyOrder ,userOrders}=require('../controllers/order.controller')
 
 const orderRouter = express.Router()
 
 orderRouter.post('/place',authMiddleware,placeOrder)
+orderRouter.post('/verify',verifyOrder)
+orderRouter.post('/userorders',authMiddleware,userOrders)
 
 module.exports = orderRouter

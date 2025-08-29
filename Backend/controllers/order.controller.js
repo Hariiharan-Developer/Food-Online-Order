@@ -12,7 +12,7 @@ const placeOrder = async(req,res)=>{
         userId:req.body.userId,
         items:req.body.items,
         amount:req.body.amount,
-        address:req.body.addres
+        address:req.body.address
     })
 
     await newOrder.save()
@@ -24,7 +24,7 @@ const placeOrder = async(req,res)=>{
             product_data:{
                 name:item.name
             },
-            unit_amount:item.price*100*80
+            unit_amount:item.price*100
          },
          quantity:item.quantity
     }))
@@ -35,14 +35,14 @@ const placeOrder = async(req,res)=>{
             product_data:{
                 name:'Delivery Charge'
             },
-            unit_amount:2*100*80
+            unit_amount:25
         },
         quantity:1
     })
-    const session = await stripe.checkout.session.create({
+    const session = await stripe.checkout.sessions.create({
         line_items:line_items,
         mode:'payment',
-        succes_url:`${frontend_url}/verify?succes=true&orderId=${newOrder._id}`,
+        success_url:`${frontend_url}/verify?succes=true&orderId=${newOrder._id}`,
         cancel_url:`${frontend_url}/verify?succes=false&orderId=${newOrder._id}`,
        
     })
@@ -58,4 +58,37 @@ const placeOrder = async(req,res)=>{
 
 }
 
-module.exports ={placeOrder}
+
+
+//temporary payment verification:
+const verifyOrder = async (req,res)=>{
+       const {orderId,succes} = req.body
+       try{
+            if(succes=='true'){
+                await orderModel.findByIdndUpdate(orderId,{payment:true})
+                res.json({success:true,message:'paid'})
+            }
+            else{
+                await orderModel.findByIdAndDelete(orderId)
+                res.json({success:true,message:'Not Paid'})
+            }
+       }
+       catch(err){
+        console.log(err.message)
+        res.json({success:false,message:'error'})
+
+       }
+}
+
+//user order for frontend:
+const userOrders = async(req,res)=>{
+try{
+    const orders = await orderModel.find({userId:req.body.userId})
+    res.status(200).json({success:true,data:orders})
+}
+catch(err){
+ console.error(err.message)
+ res.status({success:false,message:'eror'})
+}
+}
+module.exports ={placeOrder , verifyOrder, userOrders}
