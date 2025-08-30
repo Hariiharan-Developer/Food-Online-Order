@@ -30,6 +30,13 @@ app.use('/api/user',userRouter)
 app.use('/api/cart',cartRouter)
 app.use('/api/order',orderRouter)
 
+// Catch-all for React SPA
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'Frontent/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'Frontent', 'dist', 'index.html'));
+});
+
 
 app.listen(port,()=>{
     console.log(`Server listening on the port: http://localhost:${port}`)
