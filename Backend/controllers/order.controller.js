@@ -62,9 +62,9 @@ const placeOrder = async(req,res)=>{
 
 //temporary payment verification:
 const verifyOrder = async (req,res)=>{
-       const {orderId,succes} = req.body
+       const {orderId,success} = req.body
        try{
-            if(success=='true'){
+            if(success==='true'){
                 await orderModel.findByIdAndUpdate(orderId,{payment:true})
                 res.json({success:true,message:'paid'})
             }
