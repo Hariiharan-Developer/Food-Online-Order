@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
-import './LoginPopUp.css'
+import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
 
-const LoginPopup = ({setShowLogin}) => {
+const LoginPopUp = ({setShowLogin}) => {
 
   const {url,setToken}=useContext(StoreContext)
 
