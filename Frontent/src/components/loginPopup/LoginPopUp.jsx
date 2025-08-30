@@ -6,7 +6,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 
-const LoginPopUp = ({setShowLogin}) => {
+const LoginPopup = ({setShowLogin}) => {
 
   const {url,setToken}=useContext(StoreContext)
 
