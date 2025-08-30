@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './components/pages/home/Home'
 import Cart from './components/pages/cart/Cart'
 import PlaceOrder from './components/pages/placeOrder/PlaceOrder'
-import Footer from './components/footer/footer'
+import Footer from './components/footer/Footer'
 import LoginPopUp from './components/loginPopup/LoginPopUp'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
