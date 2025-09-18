@@ -1,4 +1,4 @@
-#My Project 🚀
+My Project Detail🚀
 
 Welcome to my GitHub! Here are some of my projects demonstrating front-end, full-stack, and JavaScript skills.
 
@@ -13,7 +13,7 @@ A  food delivery app clone inspired by Swiggy, built using HTML, CSS, JavaScript
 
 ⚙ Technologies
 - React.js , css for Frontend 
-- JavaScript (DOM Manipulation)
+- JavaScript
 - Node & Express for (Rest API's)
 - MongoDB for Database
 - Stipe test payment
