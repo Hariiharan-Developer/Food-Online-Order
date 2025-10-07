@@ -15,7 +15,7 @@ const navigate = useNavigate()
    localStorage.removeItem('token')
    setToken('')
    navigate('/')
-   toast.success('Logged out successfully!')
+   toast.success('user logged out ...!',{style:{backgroundColor:'black',color:'white'}})
   }
   return (
     <div className="navbar">

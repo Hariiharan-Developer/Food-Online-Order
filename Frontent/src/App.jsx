@@ -31,6 +31,7 @@ const App = () => {
       </Routes>
     </div>
     <Footer/>
+    <ToastContainer position='top-right' autoClose={3000}/>
     </>
   )
 }

@@ -1,5 +1,6 @@
 import{createContext, useEffect, useState} from 'react'
 import axios from "axios";
+import Spinner from './Spinner';
 
 
 
@@ -11,6 +12,7 @@ const [cartItem,setCartItem]=useState({})
 const url ='https://food-online-order-kazs.onrender.com'
 const [token,setToken]=useState('')
 const [food_list,setfoodList]=useState([])
+const [isLoading,setIsLoading] =useState(false)
 
     const addToCart = async (itemId)=>{
             if(!cartItem[itemId]){
@@ -55,11 +57,13 @@ const [food_list,setfoodList]=useState([])
         }
         useEffect(()=>{
          async function loadData() {
+            setIsLoading(true)
                 await fetchFoodList()
                 if(localStorage.getItem('token')){
                 setToken(localStorage.getItem('token'))
                 await loadcartData(localStorage.getItem('token'))
             }
+            setIsLoading(false)
             }
             loadData()
         },[])
@@ -76,6 +80,9 @@ const [food_list,setfoodList]=useState([])
         token,
         setToken
 
+    }
+    if(isLoading){
+        return <Spinner message="Loading food items..." />;
     }
     return(
         <StoreContext.Provider value={contextValue}>
